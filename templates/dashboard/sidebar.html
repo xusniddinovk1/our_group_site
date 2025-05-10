@@ -3,14 +3,14 @@
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="logo">
         <a href="#">
-            <img src="{% static 'images/icon/logo.png' %}" alt="Cool Admin"/>
+            <img class='login_logo' src="/media/logo/logo.JPG" alt="RenessansAdmin" , width="90px" height="90px">
         </a>
     </div>
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">
                 <li class="active">
-                    <a href="{% url 'main_dashboard' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                    <a href="{% url 'main_dashboard' %}"><i class="fas fa-tachometer-alt"></i>Admin Panel</a>
                 </li>
                 <li>
                     <a href="{% url 'subjects_list' %}"><i class="fas fa-chart-bar"></i>Fanlar</a>
