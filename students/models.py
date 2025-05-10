@@ -29,6 +29,7 @@ class Student(models.Model):
     first_name = models.CharField(max_length=50, blank=False, null=False)
     last_name = models.CharField(max_length=50, blank=False, null=False)
     phone_number = models.CharField(validators=[phone_regex], blank=True, null=True)
+    image = models.ImageField(upload_to='students/')
     failed_subjects = models.ManyToManyField(Subject, through='StudentSubjectFailure')
 
     def __str__(self):

@@ -30,6 +30,7 @@ class StudentForm(forms.ModelForm):
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
+            "image": forms.FileInput(attrs={"class": "form-control"}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
@@ -41,5 +42,5 @@ class StudentSubjectFailureForm(forms.ModelForm):
         widgets = {
             'student': forms.Select(attrs={'class': 'form-control'}),
             'subject': forms.Select(attrs={'class': 'form-control'}),
-            'phone_number': forms.IntegerField(attrs={'class': 'form-control'}),
+            'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
         }

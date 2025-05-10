@@ -1,3 +1,7 @@
 from django.shortcuts import render
+from .forms import *
+from students.models import *
 
-# Create your views here.
+
+def main_dashboard(request):
+    pass
