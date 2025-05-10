@@ -1,9 +1,11 @@
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+
+from . import services
 from .forms import *
 from students.models import *
-
+from .services import *
 
 def login_required_decorator(func):
     return login_required(func, login_url='login_page')
@@ -28,10 +30,10 @@ def logout_page(request):
 
 @login_required_decorator
 def main_dashboard(request):
-    subjects = Subject.objects.all()
-    teachers = Teacher.objects.all()
-    students = Student.objects.all()
-    failed_subjects = StudentSubjectFailure.objects.all()
+    subjects = services.get_subjects()
+    teachers = services.get_teachers()
+    students = services.get_students()
+    failed_subjects = services.get_failed_credits()
 
     ctx = {
         'subjects': len(subjects),
@@ -44,7 +46,7 @@ def main_dashboard(request):
 
 @login_required_decorator
 def subjects_list(request):
-    subjects = Subject.objects.all()
+    subjects = services.get_subjects()
     ctx = {
         'subjects': subjects
     }
@@ -91,7 +93,7 @@ def delete_subject(request, pk):
 ################ Teacher ####################
 @login_required_decorator
 def teachers_list(request):
-    teachers = Teacher.objects.all()
+    teachers = services.get_teachers()
     ctx = {
         'teachers': teachers
     }
@@ -138,7 +140,7 @@ def delete_teacher(request, pk):
 ############## Student ###################
 @login_required_decorator
 def students_list(request):
-    students = Student.objects.all()
+    students = services.get_students()
     ctx = {
         'students': students
     }
@@ -185,7 +187,7 @@ def delete_student(request, pk):
 ################# failed_subject ############
 @login_required_decorator
 def failed_subjects_list(request):
-    failed_subjects = StudentSubjectFailure.objects.all()
+    failed_subjects = services.get_failed_credits()
     ctx = {
         'failed_subjects': failed_subjects
     }
