@@ -15,7 +15,7 @@
                     <div class="col-md-12">
                         <div class="overview-wrap">
                             <h2 class="title-1">Subject List</h2>
-                            <a class="au-btn au-btn-icon au-btn--blue" href="{% url 'subject_create' %}">
+                            <a class="au-btn au-btn-icon au-btn--blue" href="{% url 'failed_subject_create' %}">
                                 <i class="zmdi zmdi-plus"></i>add</a>
                         </div>
                     </div>
@@ -29,21 +29,25 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Name</th>
+                                        <th>Student</th>
+                                        <th>Subject</th>
+                                        <th>Failed Credits</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {% for subject in subjects %}
+                                    {% for failed_subject in failed_subjects %}
                                     <tr>
-                                        <td>{{subject.id }}</td>
-                                        <td>{{subject.name }}</td>
+                                        <td>{{failed_subject.id }}</td>
+                                        <td>{{failed_subject.student }}</td>
+                                        <td>{{failed_subject.subject }}</td>
+                                        <td>{{failed_subject.failed_credits }}</td>
                                         <td>
                                             <div class="table-data-feature">
-                                                <a class="item" data-toggle="tooltip" href="{% url 'subject_edit' pk=subject.id %}" data-placement="top" title="" data-original-title="Edit">
+                                                <a class="item" data-toggle="tooltip" href="{% url 'update_failed_subject' pk=failed_subject.id %}" data-placement="top" title="" data-original-title="Edit">
                                                     <i class="zmdi zmdi-edit text-warning"></i>
                                                 </a>
-                                                <a class="item" data-toggle="tooltip" href="{% url 'subject_delete' pk=subject.id %}" data-placement="top" title="" data-original-title="Delete">
+                                                <a class="item" data-toggle="tooltip" href="{% url 'delete_failed_subject' pk=failed_subject.id %}" data-placement="top" title="" data-original-title="Delete">
                                                     <i class="zmdi zmdi-delete text-danger"></i>
                                                 </a>
                                             </div>

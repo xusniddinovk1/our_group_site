@@ -42,5 +42,5 @@ class StudentSubjectFailureForm(forms.ModelForm):
         widgets = {
             'student': forms.Select(attrs={'class': 'form-control'}),
             'subject': forms.Select(attrs={'class': 'form-control'}),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
+            'failed_credits': forms.TextInput(attrs={'class': 'form-control'}),
         }
