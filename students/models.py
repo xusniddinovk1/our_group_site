@@ -8,6 +8,7 @@ phone_regex = RegexValidator(
 
 
 class Subject(models.Model):
+    objects = None
     name = models.CharField(max_length=50, blank=False, null=False)
     total_credit = models.IntegerField()
 
@@ -16,6 +17,7 @@ class Subject(models.Model):
 
 
 class Teacher(models.Model):
+    objects = None
     first_name = models.CharField(max_length=50, blank=False, null=False)
     last_name = models.CharField(max_length=50, blank=False, null=False)
     phone_number = models.CharField(validators=[phone_regex], blank=True, null=True)
@@ -26,6 +28,7 @@ class Teacher(models.Model):
 
 
 class Student(models.Model):
+    objects = None
     first_name = models.CharField(max_length=50, blank=False, null=False)
     last_name = models.CharField(max_length=50, blank=False, null=False)
     phone_number = models.CharField(validators=[phone_regex], blank=True, null=True)
@@ -37,6 +40,7 @@ class Student(models.Model):
 
 
 class StudentSubjectFailure(models.Model):
+    objects = None
     student = models.ForeignKey(Student, on_delete=models.CASCADE)
     subject = models.ForeignKey(Subject, on_delete=models.CASCADE)
     failed_credits = models.IntegerField()
