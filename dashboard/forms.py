@@ -8,7 +8,7 @@ class SubjectForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control'}),
-            'total_credits': forms.TextInput(attrs={'class': 'form-control'}),
+            'total_credit': forms.NumberInput(attrs={'class': 'form-control'}),
         }
 
 

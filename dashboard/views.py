@@ -53,7 +53,7 @@ def subjects_list(request):
 
 @login_required_decorator
 def create_subject(request):
-    model = Subject.objects.all()
+    model = Subject()
     form = SubjectForm(request.POST or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
@@ -100,7 +100,7 @@ def teachers_list(request):
 
 @login_required_decorator
 def create_teacher(request):
-    model = Teacher.objects.all()
+    model = Teacher()
     form = TeacherForm(request.POST or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
@@ -147,7 +147,7 @@ def students_list(request):
 
 @login_required_decorator
 def create_student(request):
-    model = Student.objects.all()
+    model = Student()
     form = StudentForm(request.POST or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
@@ -194,7 +194,7 @@ def failed_subjects_list(request):
 
 @login_required_decorator
 def create_failed_subject(request):
-    model = StudentSubjectFailure.objects.all()
+    model = StudentSubjectFailure()
     form = StudentSubjectFailureForm(request.POST or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
