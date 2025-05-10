@@ -1,11 +1,10 @@
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-
 from . import services
 from .forms import *
 from students.models import *
-from .services import *
+
 
 def login_required_decorator(func):
     return login_required(func, login_url='login_page')
