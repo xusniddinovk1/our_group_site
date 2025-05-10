@@ -163,7 +163,7 @@
     </div>
 </div>
 <!-- END MAIN CONTENT-->
-<!-- END PAGE CONTAINER--
+<!-- END PAGE CONTAINER-->
 {% block javascript %}
 <script>
     (function($){
@@ -174,11 +174,11 @@
           var myChart = new Chart(ctx, {
             type: 'bar',
             data: {
-              labels: ["Faculty", "Chair", "Teacher", "Group", "Student"],
+              labels: ["Fanlar", "O'qituvchilar", "Talabalar", "Kreditga qolganlar"],
               datasets: [
                 {
                   label: "University dataset",
-                  data: [{{ counts.faculties }}, {{ counts.chairs }}, {{ counts.teachers }}, {{ counts.groups }}, {{ counts.students }}],
+                  data: [{{ counts.subjects }}, {{ counts.teachers }}, {{ counts.students }}, {{ counts.failed_subjects }}],
                   borderColor: "rgba(0, 123, 255, 0.9)",
                   borderWidth: "0",
                   backgroundColor: "rgba(0, 123, 255, 0.5)"
@@ -225,7 +225,7 @@
             type: 'pie',
             data: {
               datasets: [{
-                  data: [{{ counts.faculties }}, {{ counts.chairs }}, {{ counts.teachers }}, {{ counts.groups }}, {{ counts.students }}],
+                  data: [{{ counts.subjects }}, {{ counts.teachers }}, {{ counts.students }}, {{ counts.failed_subjects }}],
                 backgroundColor: [
                   "rgba(0, 123, 255,0.9)",
                   "rgba(0, 123, 255,0.7)",
@@ -240,8 +240,7 @@
                 ]
 
               }],
-              labels: ["Faculty", "Chair", "Teacher", "Group", "Student"],
-
+              labels: ["Fanlar", "O'qituvchilar", "Talabalar", "Kreditga qolganlar"],
             },
             options: {
               legend: {
