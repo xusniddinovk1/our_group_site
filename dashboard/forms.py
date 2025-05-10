@@ -30,7 +30,8 @@ class StudentForm(forms.ModelForm):
         widgets = {
             'first_name': forms.TextInput(attrs={'class': 'form-control'}),
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
-            "image": forms.FileInput(attrs={"class": "form-control"}),
+            "image": forms.FileInput(attrs={"class": "form-control",
+                                            "onchange": "loadFile(event)"}),
             'phone_number': forms.TextInput(attrs={'class': 'form-control'}),
         }
 
