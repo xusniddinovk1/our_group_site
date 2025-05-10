@@ -150,7 +150,7 @@ def students_list(request):
 @login_required_decorator
 def create_student(request):
     model = Student()
-    form = StudentForm(request.POST or None, instance=model)
+    form = StudentForm(request.POST or None, request.FILES or None, instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect('students_list')
@@ -158,14 +158,13 @@ def create_student(request):
         'model': model,
         'form': form
     }
-
     return render(request, 'dashboard/students/form.html', ctx)
 
 
 @login_required_decorator
 def update_student(request, pk):
     model = Student.objects.get(pk=pk)
-    form = StudentForm(request.POST or None, instance=model)
+    form = StudentForm(request.POST or None,request.FILES, instance=model)
     if request.POST and form.is_valid():
         form.save()
         return redirect('students_list')
