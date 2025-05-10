@@ -35,8 +35,8 @@ def get_teachers():
 
 def get_students():
     with closing(connection.cursor()) as cursor:
-        cursor.execute("""SELECT students_student.id, students_student.first_name, students_student.phone_number, 
-                        students_student.image as image FROM students_student""")
+        cursor.execute("""SELECT students_student.id, students_student.first_name, students_student.last_name,
+                        students_student.phone_number, students_student.image as image FROM students_student""")
         students = dict_fetchall(cursor)
         return students
 
