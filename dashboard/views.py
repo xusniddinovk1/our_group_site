@@ -17,7 +17,7 @@ def login_page(request):
         if user is not None:
             login(request, user)
             return redirect(main_dashboard)
-    return render(request, 'students/login.html')
+    return render(request, 'dashboard/login.html')
 
 
 @login_required_decorator
@@ -39,7 +39,7 @@ def main_dashboard(request):
         'students': len(students),
         'failed_subjects': len(failed_subjects)
     }
-    return render(request, 'students/index.html', ctx)
+    return render(request, 'dashboard/index.html', ctx)
 
 
 @login_required_decorator
