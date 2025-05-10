@@ -1,16 +1,16 @@
+import os
 from pathlib import Path
+from dotenv import load_dotenv
 
+load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-SECRET_KEY = 'django-insecure-2no@zmuxmya72@nj07_dkw^^2*_k7e&k_ec0cnvu+^03ip6sqv'
+SECRET_KEY = os.getenv('SECRET_KEY', '')
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
-
+ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -21,6 +21,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'students',
+    'dashboard',
 ]
 
 MIDDLEWARE = [
@@ -52,15 +53,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -77,7 +75,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -86,10 +83,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
-
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
